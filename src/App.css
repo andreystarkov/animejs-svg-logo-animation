@@ -3,7 +3,7 @@ html, body, #root {
   width: 100%;
 }
 
-.round, .center, .particle, .stroke, .fire {
+.round, .center, .particle, .stroke, .fire, .firebg {
   opacity: 0;
   transform-origin: center center;
 }

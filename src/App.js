@@ -2,23 +2,24 @@ import React, { Component } from 'react'
 
 import anime from 'animejs'
 
-import logo from './logo.svg'
+// import logo from './logo.svg'
 import './App.css'
 
-const transformX = () => {
-  const is = anime.random(1, 0)
-  console.log({ is })
-  if (is) {
-    return -(anime.random(100, 0))
-  } else return anime.random(100, 0)
-}
+// const transformX = () => {
+//   const is = anime.random(1, 0)
+//   console.log({ is })
+//   if (is) {
+//     return -(anime.random(100, 0))
+//   } else return anime.random(100, 0)
+// }
+
 class App extends Component {
   componentDidMount () {
     anime({
       targets: '#mead .anim',
-      translateX: () => [anime.random(0, 500), 0],
+      translateX: () => [anime.random(500, 0), 0],
       opacity: [0, 1],
-      translateY: () => [anime.random(0, 500), 0],
+      translateY: () => [anime.random(500, 0), 0],
       rotateZ: () => [anime.random(100, 10), 0],
       delay: anime.stagger(200, {grid: [14, 5], from: 'center'}),
       easing: 'easeInOutQuad',
@@ -32,6 +33,7 @@ class App extends Component {
         targets: '#mead .round',
         opacity: [0, 1],
         scale: [0.6, 1],
+        rotate: [50, 0],
         delay: anime.stagger(200, {grid: [14, 5], from: 'center'}),
         // easing: 'easeInOutQuint',
         easing: 'spring(1.05, 60, 7, 0)',
@@ -44,6 +46,7 @@ class App extends Component {
       anime({
         targets: '#mead .center',
         opacity: [0, 1],
+        rotate: [-50, 0],
         delay: anime.stagger(200, {grid: [14, 5], from: 'center'}),
         // easing: 'easeInOutSine',
         easing: 'spring(1.05, 40, 8, 0)',
@@ -76,7 +79,7 @@ class App extends Component {
 
         }
       })
-    }, 1400)
+    }, 1600)
     setTimeout(() => {
       anime({
         targets: '#mead .firebg',
