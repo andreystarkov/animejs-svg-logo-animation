@@ -14,6 +14,9 @@ import './App.css'
 // }
 
 class App extends Component {
+  state = {
+    stage: 0
+  }
   componentDidMount () {
     anime({
       targets: '#mead .anim',
@@ -62,12 +65,9 @@ class App extends Component {
         opacity: [0, 1],
         delay: anime.stagger(200, {grid: [14, 5], from: 'center'}),
         easing: 'easeInOutSine',
-        scale: [0.4, 1],
-        complete: () => {
-
-        }
+        scale: [0.4, 1]
       })
-    }, 400)
+    }, 1700)
     setTimeout(() => {
       anime({
         targets: '#mead .stroke',
@@ -95,20 +95,104 @@ class App extends Component {
     setTimeout(() => {
       anime({
         targets: '#mead .fire',
-        opacity: [0, 1],
-        delay: anime.stagger(200, {grid: [14, 5], from: 'center'}),
-        scale: [1.5, 1],
-        easing: 'spring(2, 40, 6, 0)',
-        complete: () => {
-
+        opacity: [0, 0.4],
+        scale: [3, 1],
+        easing: 'easeInOutQuint',
+        complete: e => {
+          anime({
+            targets: '#mead .fire',
+            opacity: [0.4, 1],
+            duration: 7000
+          })
         }
       })
-    }, 900)
+    }, 1900)
   }
+
+  handleMouseEnter = () => {
+    const { stage } = this.state
+    if (stage === 0) {
+      anime({
+        targets: '#mead .center',
+        scale: [1, 1.1, 1],
+        easing: 'spring(1.05, 80, 10, 0)',
+        duration: 1300
+      })
+      anime({
+        targets: '#mead .round',
+        scale: [1, 1.15, 1],
+        easing: 'spring(1.1, 80, 10, 0)',
+        duration: 1300
+      })
+      anime({
+        targets: '#mead .particle',
+        scale: [1, 3.15, 1],
+        easing: 'easeInOutSine',
+        duration: 1300
+      })
+    }
+  }
+  handleMouseLeave = () => {
+    // anime({
+    //   targets: '#mead .center',
+    //   scale: 1,
+    //   easing: 'easeInOutQuad',
+    //   duration: 900
+    // })
+    // anime({
+    //   targets: '#mead .round',
+    //   scale: 1,
+    //   easing: 'easeInOutQuint',
+    //   duration: 900
+    // })
+  }
+
+  nextStage = () => {
+    const { stage } = this.state
+    if (stage === 0) {
+      anime({
+        targets: '#mead .center',
+        rotate: [0, 360],
+        easing: 'easeInOutQuad',
+        duration: 2200,
+        direction: 'alternate',
+        loop: true
+      })
+    }
+    if (stage === 1) {
+      anime({
+        targets: '#mead .round',
+        rotate: [0, 360],
+        easing: 'easeInOutQuint',
+        duration: 2300,
+        loop: true
+      })
+      anime({
+        targets: '#mead .particle',
+        scale: 5,
+        rotate: 360,
+        rotateZ: 15,
+        rotateX: -10,
+        rotateY: -20,
+        opacity: 0.3,
+        translateY: () => anime.random(150, 400),
+        translateX: () => anime.random(150, 400),
+        easing: 'easeInOutQuad',
+        duration: 5200,
+        loop: true
+      })
+    }
+    this.setState({ stage: stage + 1 })
+  }
+
   render () {
+    const { stage } = this.state
     return (
-      <div className="App">
-        <div className='logo'>
+      <div className="App" style={stage > 0 ? {} : { cursor: 'pointer' }}>
+        <div className='logo'
+          onClick={this.nextStage}
+          onMouseEnter={this.handleMouseEnter}
+          onMouseLeave={this.handleMouseLeave}>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 374.5 374.92" id='mead'>
             <defs>
               <linearGradient id="linear-gradient" x1="173.13" y1="156.05" x2="298.63" y2="75.55" gradientUnits="userSpaceOnUse">
