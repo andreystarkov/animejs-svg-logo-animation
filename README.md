@@ -1,13 +1,13 @@
 # Anime.js SVG Logo Animation Demo
 
-My good old friend asked me for help: to put this logo on his website.
+![Anime.js SVG Animation Demo 1](misc/1.gif)
+
+My good old friend asked me for some help with this logo.
 So i didn't missed the chance to create fresh simple animation demo. 
 It uses hottest version of [Anime.js](https://animejs.com/) (3.x)
 This lib keeps killing it. Just [check its new docs](https://animejs.com/documentation/).
 
 ## Its so easy
-
-![Anime.js SVG Animation Demo 1](misc/1.gif)
 
 ![Anime.js SVG Animation Demo 1](misc/2.gif)
 
