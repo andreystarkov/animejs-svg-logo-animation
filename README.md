@@ -11,7 +11,7 @@ This lib keeps killing it. Just [check its new docs](https://animejs.com/documen
 
 ![Anime.js SVG Animation Demo 1](misc/2.gif)
 
-## Usaga
+## Usage
 
 This demo created with create-react-app.
 [Check out prevous Anime.js demo](https://github.com/andreystarkov/animejs-svg-experiment)
