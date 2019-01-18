@@ -19,6 +19,11 @@ html, body, #root {
   overflow: visible;
 }
 
+#mead .file {
+  z-index: 3;
+}
+
+
 .email-link {
   font-size: 1.5rem;
   color: #111;
