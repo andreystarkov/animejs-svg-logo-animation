@@ -15,6 +15,7 @@ This lib keeps killing it. Just [check its new docs](https://animejs.com/documen
 
 This demo created with create-react-app.
 [Check out prevous Anime.js demo](https://github.com/andreystarkov/animejs-svg-experiment)
+
 [Node.js](https://nodejs.org/en/) is required to run this demo locally.
 
 To run this project locally just clone the repo and run:
