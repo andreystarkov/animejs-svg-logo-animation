@@ -1,4 +1,4 @@
-# Anime.js logo animation experiment
+# Anime.js SVG Logo Animation Experiment
 
 My good old friend asked me for help: to put this logo on his website.
 So i didn't missed the chance to create another hot animation demo.
